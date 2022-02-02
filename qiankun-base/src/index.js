@@ -13,6 +13,12 @@ registerMicroApps([
     container: '#container',
     activeRule: '/app-vue',
   },
+  {
+    name: 'reactApp',
+    entry: '//localhost:4000',
+    container: '#container',
+    activeRule: '/app-react',
+  },
 ]);
 
 // 启动 qiankun
