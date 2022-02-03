@@ -1,12 +1,10 @@
 const { name } = require('./package');
 
-
-
 module.exports = {
   webpack: (config) => {
     config.output.library = `${name}-[name]`;
     config.output.libraryTarget = 'umd';
-    config.output.jsonpFunction = `webpackJsonp_${name}`;
+    config.output.chunkLoadingGlobal = `webpackJsonp_${name}`;
     config.output.globalObject = 'window';
 
     return config;
@@ -15,7 +13,7 @@ module.exports = {
     return function (proxy, allowedHost) {
       const config = configFunction(proxy, allowedHost);
       config.historyApiFallback = true;
-      config.watchContentBase = false;
+      config.static = false;
       config.liveReload = false;
       config.open = false;
       config.hot = false;
